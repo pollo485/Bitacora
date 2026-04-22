@@ -10,19 +10,17 @@ using System.Windows.Forms;
 
 namespace Bitacora
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
         }
 
-        private void btnSesion_Click(object sender, EventArgs e)
+        private void btnArchivo_Click(object sender, EventArgs e)
         {
-            /*FrmBitacora forma = new FrmBitacora(txtUser.Text, txtPassword.Text);
-            forma.Show();*/
-            Menu frmMenu = new Menu();
-            frmMenu.Show();
+            Archivo frmArchivo = new Archivo();
+            frmArchivo.Show();
         }
     }
 }
