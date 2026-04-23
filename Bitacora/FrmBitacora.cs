@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -23,11 +24,13 @@ namespace Bitacora
             string hora = DateTime.Now.ToString("HH:mm");
             string encabezado = $"[{_usuario}]:[{_password}]:{fecha};{hora}GMT-7=IN";
 
+            //if (!File.Exists(@"C:\Unidad3-Redes\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt")) System.IO.File.Create(@"C:\Unidad3-Redes\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+
             richTextBox1.AppendText(encabezado + Environment.NewLine);
             richTextBox1.AppendText(descripcion + Environment.NewLine);
             richTextBox1.AppendText(Environment.NewLine);
-            string direccion = @"C:\Unidad3-Redes\" + fecha + ".txt";
-            using (FileStream fs = System.IO.File.Create(direccion))
+            string direccion = @"C:\Unidad3-Redes\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
+            using (FileStream fs = System.IO.File.OpenWrite(direccion))
             {
                 AddText(fs, richTextBox1.Text);
             }

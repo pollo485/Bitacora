@@ -9,7 +9,7 @@ namespace Bitacora
     public class Usuarios
     {
         public string NombreUsuario { get; set; } = "";
-        public string ContrasenaUsuario { get; set; } = "";   // SHA-256 hex
+        public string ContrasenaUsuario { get; set; } = "";
         public DateTime FechaUsuario { get; set; } = DateTime.Now;
     }
 }
