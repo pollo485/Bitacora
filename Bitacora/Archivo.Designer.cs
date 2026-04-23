@@ -34,7 +34,7 @@
             this.rtbTxtArchivo = new System.Windows.Forms.RichTextBox();
             this.rtbLogDeAcciones = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbUsuarios = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtBoxFecha = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.btnLeer.TabIndex = 0;
             this.btnLeer.Text = "Leer";
             this.btnLeer.UseVisualStyleBackColor = true;
+            this.btnLeer.Click += new System.EventHandler(this.btnLeer_Click);
             // 
             // btnGuardar
             // 
@@ -70,6 +71,7 @@
             this.btnAppend.TabIndex = 2;
             this.btnAppend.Text = "Append";
             this.btnAppend.UseVisualStyleBackColor = true;
+            this.btnAppend.Click += new System.EventHandler(this.btnAppend_Click);
             // 
             // rtbTxtArchivo
             // 
@@ -96,13 +98,13 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Acciones de";
             // 
-            // comboBox1
+            // cbUsuarios
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(534, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 6;
+            this.cbUsuarios.FormattingEnabled = true;
+            this.cbUsuarios.Location = new System.Drawing.Point(534, 54);
+            this.cbUsuarios.Name = "cbUsuarios";
+            this.cbUsuarios.Size = new System.Drawing.Size(121, 24);
+            this.cbUsuarios.TabIndex = 6;
             // 
             // label2
             // 
@@ -163,7 +165,7 @@
             this.Controls.Add(this.txtBoxFecha);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbUsuarios);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbLogDeAcciones);
             this.Controls.Add(this.rtbTxtArchivo);
@@ -172,6 +174,7 @@
             this.Controls.Add(this.btnLeer);
             this.Name = "Archivo";
             this.Text = "Archivo";
+            this.Load += new System.EventHandler(this.Archivo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +188,7 @@
         private System.Windows.Forms.RichTextBox rtbTxtArchivo;
         private System.Windows.Forms.RichTextBox rtbLogDeAcciones;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbUsuarios;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBoxFecha;

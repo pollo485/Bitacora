@@ -40,6 +40,7 @@
             this.btnBitacora.TabIndex = 0;
             this.btnBitacora.Text = "button1";
             this.btnBitacora.UseVisualStyleBackColor = true;
+            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
             // 
             // btnArchivo
             // 

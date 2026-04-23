@@ -22,5 +22,11 @@ namespace Bitacora
             Archivo frmArchivo = new Archivo();
             frmArchivo.Show();
         }
+
+        private void btnBitacora_Click(object sender, EventArgs e)
+        {
+            FrmBitacora frmBitacora = new FrmBitacora("lol","lmao");
+            frmBitacora.Show();
+        }
     }
 }

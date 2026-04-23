@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Bitacora
@@ -23,8 +25,19 @@ namespace Bitacora
 
             richTextBox1.AppendText(encabezado + Environment.NewLine);
             richTextBox1.AppendText(descripcion + Environment.NewLine);
-            richTextBox1.AppendText(Environment.NewLine); 
+            richTextBox1.AppendText(Environment.NewLine);
+            string direccion = @"C:\Unidad3-Redes\" + fecha + ".txt";
+            using (FileStream fs = System.IO.File.Create(direccion))
+            {
+                AddText(fs, richTextBox1.Text);
+            }
             richTextBox1.ScrollToCaret();
+        }
+
+        private static void AddText(FileStream fs, string value)
+        {
+            byte[] info = new UTF8Encoding(true).GetBytes(value);
+            fs.Write(info, 0, info.Length);
         }
 
         private void txtSSID_TextChanged(object sender, EventArgs e)
@@ -58,6 +71,12 @@ namespace Bitacora
         {
             string accion = CBWPS.Checked ? "activado" : "desactivado";
             RegistrarCambio($"Ha {accion} WPS");
+        }
+
+        private void btnArchivo_Click(object sender, EventArgs e)
+        {
+           Archivo forma = new Archivo(_usuario, _password);
+           forma.Show();
         }
     }
 }
