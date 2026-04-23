@@ -105,11 +105,6 @@ namespace Bitacora
             }
             log("Guardar", Path.GetFileName(direccion));
         }
-        private static void AgregarTexto(FileStream fs, string value)
-        {
-            byte[] info = new UTF8Encoding(true).GetBytes(value);
-            fs.Write(info, 0, info.Length);
-        }
 
         private void btnLeer_Click(object sender, EventArgs e)
         {
@@ -141,18 +136,21 @@ namespace Bitacora
 
         private void btnAppend_Click(object sender, EventArgs e)
         {
-            string direccion = @"C:\Unidad3-Redes\" + txtNombre.Text + ".txt";
+            /*string direccion = @"C:\Unidad3-Redes\" + txtNombre.Text + ".txt";
 
             if (!System.IO.File.Exists(direccion))
             {
                 MessageBox.Show("El archivo no existe. Usa Guardar primero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }
+            }*/
 
-            using (StreamWriter sw = System.IO.File.AppendText(direccion))
+            btnGuardar_Click(sender, e);
+            rtbLogDeAcciones.Text = rtbTxtArchivo.Text;
+
+            /*using (StreamWriter sw = System.IO.File.AppendText(direccion))
             {
                 sw.Write(rtbTxtArchivo.Text);
-            }
+            }*/
         }
 
         private void FiltrarYMostrarArchivo()
